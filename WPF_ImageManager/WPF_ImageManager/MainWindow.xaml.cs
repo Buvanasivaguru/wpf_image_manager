@@ -51,6 +51,7 @@ namespace WPF_ImageManager
                 bitmap.UriSource = new Uri(selectedFileName);
                 bitmap.EndInit();
                 ImageViewer.Source = bitmap;
+
             }
         }
     }
