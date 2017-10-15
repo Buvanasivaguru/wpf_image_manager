@@ -1,2 +1,2 @@
 # wpf_image_manager
-A Image management tool using WPF
+A Simple Image management tool using WPF
