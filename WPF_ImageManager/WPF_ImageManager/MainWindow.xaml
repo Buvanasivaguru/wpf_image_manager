@@ -7,14 +7,28 @@
         mc:Ignorable="d"
         Title="My Image Management App" Height="350" Width="525">
     <StackPanel Orientation="Vertical">
-        <StackPanel Orientation="Horizontal" Background="Beige" Height="40">
-            <Label Margin="5,0,0,0" Height="25" Name="FileNameLabel" Width="300" >
-                Open an Image to view
-            </Label>
-            <Button Margin="5,0,0,0" Height="23" Name="BrowseButton" Width="75" Click="onClickBrowseButton">
-                Browse
-            </Button>
-        </StackPanel>
+            <!-- Menu Code -->
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="Open" Click="onClickBrowseButton"/>
+                        <Separator />
+                        <MenuItem Header="_Exit" Click="onClickExitButton"/>
+                    </MenuItem>
+                    <MenuItem Header="_Edit">
+                        <MenuItem Command="Cut" />
+                        <MenuItem Command="Copy" />
+                        <MenuItem Command="Paste" />
+                    </MenuItem>
+                </Menu>
+
+            </DockPanel>
+        <!-- 
+            <StackPanel Orientation="Horizontal" Background="Beige">
+                <Label Margin="5,0,0,0" Height="25" x:Name="FileNameLabel" Width="300" Content="Open an Image to view" />
+                <Button Margin="5,0,0,0" Height="23" x:Name="BrowseButton" Width="75" Click="onClickBrowseButton" Content="Browse"/>
+            </StackPanel>
+        -->
         <StackPanel >
             <Image x:Name="ImageViewer" Margin="10,0" />
         </StackPanel>
