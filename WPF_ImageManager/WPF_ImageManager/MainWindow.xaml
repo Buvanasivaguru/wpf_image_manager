@@ -6,31 +6,50 @@
         xmlns:local="clr-namespace:WPF_ImageManager"
         mc:Ignorable="d"
         Title="My Image Management App" Height="350" Width="525">
-    <StackPanel Orientation="Vertical">
-            <!-- Menu Code -->
-            <DockPanel>
-                <Menu DockPanel.Dock="Top">
-                    <MenuItem Header="_File">
-                        <MenuItem Header="Open" Click="onClickBrowseButton"/>
-                        <Separator />
-                        <MenuItem Header="_Exit" Click="onClickExitButton"/>
-                    </MenuItem>
-                    <MenuItem Header="_Edit">
-                        <MenuItem Command="Cut" />
-                        <MenuItem Command="Copy" />
-                        <MenuItem Command="Paste" />
-                    </MenuItem>
-                </Menu>
 
-            </DockPanel>
-        <!-- 
-            <StackPanel Orientation="Horizontal" Background="Beige">
-                <Label Margin="5,0,0,0" Height="25" x:Name="FileNameLabel" Width="300" Content="Open an Image to view" />
-                <Button Margin="5,0,0,0" Height="23" x:Name="BrowseButton" Width="75" Click="onClickBrowseButton" Content="Browse"/>
-            </StackPanel>
-        -->
-        <StackPanel >
-            <Image x:Name="ImageViewer" Margin="10,0" />
+    <Grid>  <!-- PARENT CONTAINER : DO NOT CHANGE THIS !!!!-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="28" />
+        </Grid.RowDefinitions>
+        
+        <!-- Menu Code -->
+        <StackPanel Grid.Row="0">
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="Open" Click="onClickBrowseButton"/>
+                    <Separator />
+                    <MenuItem Header="_Exit" Click="onClickExitButton"/>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Command="Cut" />
+                    <MenuItem Command="Copy" />
+                    <MenuItem Command="Paste" />
+                </MenuItem>
+            </Menu>
         </StackPanel>
-    </StackPanel>
+
+
+
+        <!-- Images and Thumbnail view-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="ThumbnailViewer" Margin="10" />
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"  />
+            <StackPanel Background="LightBlue" Grid.Column="2">
+                <Image x:Name="ImageViewer" Margin="10" />
+            </StackPanel>
+        </Grid>
+
+         <!-- Status Bar -->
+        <StackPanel Orientation="Horizontal" Background="Beige"  Grid.Row="2" VerticalAlignment="Center">
+            <Label  x:Name="FileNameLabel" Content="Open an Image to view" FontSize="14"/>
+        </StackPanel>
+    </Grid>
 </Window>
