@@ -44,6 +44,7 @@ namespace WPF_ImageManager
             }
         }
 
+        //Invoked on clicking Exit button
         private void onClickExitButton(object sender, RoutedEventArgs routedEventArgs)
         {
             Console.Write("Closing the application. bye !");
